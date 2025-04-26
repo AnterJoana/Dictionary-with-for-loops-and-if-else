@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+#include <map>
+
+using namespace std;
+
+int main() {
+  map<string, string> Dictionary = {
+    {"DEFLECTION", "HOW MUCH A STRUCTURE BENDS UNDER WEIGHT"},
+    {"SLAB", "A FLAT CONCRETE SURFACE IN BUILDINGS"},
+    {"COLUMN", "A VERTICAL SUPPORT THAT CARRIES WEIGHT"},
+    {"SHEAR FORCE", "A FORCE THAT MAKES MATERIAL SLIDE APART"},
+    {"PERMEABILITY", "HOW EASILY WATER MOVES THROUGH SOIL"},
+    {"BEAM", "A HORIZONTAL SUPPORT THAT RESISTS BENDING"},
+    {"FOUNDATION", "THE BASE THAT SPREADS A STRUCTURE’S LOAD"},
+    {"CONCRETE", "A MIX OF CEMENT, SAND, GRAVEL, AND WATER"},
+    {"CEMENT", "A BINDER FOR CONCRETE AND MORTAR"},
+    {"BRICKS", "CLAY OR CONCRETE BLOCKS USED FOR BUILDING"},
+    {"BENDING MOMENT", "A FORCE THAT BENDS A BEAM"},
+    {"FOOTING", "THE FOUNDATION’S BASE THAT SUPPORTS WEIGHT"},
+    {"DEAD LOAD", "A STRUCTURE’S PERMANENT WEIGHT"},
+    {"LIVE LOAD", "TEMPORARY WEIGHT LIKE PEOPLE OR FURNITURE"},
+    {"COMPACTION", "DENSIFYING SOIL FOR STRENGTH"},
+    {"SLOPE STABILITY", "SOIL’S RESISTANCE TO LANDSLIDES"},
+    {"ASPHALT", "A PETROLEUM BASED ROAD MATERIAL"},
+    {"STEEL REINFORCEMENT", "STEEL BARS THAT STRENGTHEN CONCRETE"},
+    {"TIMBER", "WOOD USED IN CONSTRUCTION"},
+    {"BITUMEN", "A BLACK, STICKY WATERPROOFING MATERIAL"},
+    {"BENCHMARK", "A FIXED REFERENCE FOR ELEVATION"},
+    {"PLOT PLAN", "A DRAWING OF PROPERTY LAYOUT"},
+    {"CHAINAGE", "MEASURING DISTANCES ALONG A ROUTE"},
+    {"AGGREGATE", "CRUSHED ROCK, SAND, OR GRAVEL FOR CONSTRUCTION"},
+    {"RETAINING WALL", "A WALL THAT HOLDS BACK SOIL"},
+    {"GEOTEXTILES", "FABRIC USED TO STABILIZE SOIL"},
+    {"SOIL BEARING CAPACITY", "SOIL’S STRENGTH TO SUPPORT WEIGHT"},
+    {"SETTLEMENT", "A STRUCTURE SINKING DUE TO SOIL COMPRESSION"},
+    {"STRUCTURAL INTEGRITY", "A STRUCTURE’S ABILITY TO STAY STRONG"},
+    {"PAVEMENT DESIGN", "PLANNING ROAD LAYERS FOR DURABILITY"}
+  };
+
+  string word;
+  bool continueLoop = true;
+
+
+  while (continueLoop) {
+    cout << "Search for the word: ";
+    cin >> word;
+
+    // Convert input to uppercase for case-insensitive search
+    for (char &c : word) {
+        c = toupper(c);
+    }
+
+    auto it = Dictionary.find(word);
+    if (it != Dictionary.end()) {
+      cout << word << ": " << it->second << endl;
+    } else {
+      cout << "Word not found in the dictionary." << endl;
+    }
+
+    cout << "Search again? (y/n): ";
+    char choice;
+    cin >> choice;
+    continueLoop = (choice == 'y');
+  }
+
+  return 0;
+}
